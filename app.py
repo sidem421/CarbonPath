@@ -1,11 +1,16 @@
 import streamlit as st
 import json
+import os
 
 # SAYFA AYARI
 st.set_page_config(page_title="CarbonPath", page_icon="🌍")
 
-# VERİYİ YÜKLE
-with open("data/carbon_data.json") as f:
+# DOSYA YOLU (HATA ÇÖZÜMÜ BURADA)
+base_dir = os.path.dirname(__file__)
+file_path = os.path.join(base_dir, "data", "carbon_data.json")
+
+# JSON YÜKLE
+with open(file_path) as f:
     data = json.load(f)
 
 # CSS
@@ -25,7 +30,6 @@ if "state" not in st.session_state:
     st.session_state.state = "start"
     st.session_state.score = 0
     st.session_state.carbon = 50
-    st.session_state.history = []
 
 state = st.session_state.state
 
@@ -99,17 +103,17 @@ if st.session_state.carbon >= 80:
     st.session_state.state = "bad_end"
 
 # İYİ SON
-if state == "good_end":
+if st.session_state.state == "good_end":
     st.success("🌱 Harika! Doğayı korudun!")
-    st.write("Karbon dengede tutuldu. Sürdürülebilir bir sistem oluştu.")
+    st.write("Karbon dengede tutuldu.")
 
     if st.button("🔄 Tekrar Oyna"):
         st.session_state.clear()
 
 # KÖTÜ SON
-elif state == "bad_end":
+elif st.session_state.state == "bad_end":
     st.error("🔥 Karbon kontrolden çıktı!")
-    st.write("Küresel ısınma arttı ve ekosistem zarar gördü.")
+    st.write("Küresel ısınma arttı.")
 
     if st.button("🔄 Tekrar Dene"):
         st.session_state.clear()
