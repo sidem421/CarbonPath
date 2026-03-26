@@ -1,17 +1,16 @@
 import streamlit as st
-import json
-import os
 
 # SAYFA AYARI
 st.set_page_config(page_title="CarbonPath", page_icon="🌍")
 
-# DOSYA YOLU (HATA ÇÖZÜMÜ BURADA)
-base_dir = os.path.dirname(__file__)
-file_path = os.path.join(base_dir, "data", "carbon_data.json")
-
-# JSON YÜKLE
-with open(file_path) as f:
-    data = json.load(f)
+# VERİYİ BURAYA GÖMDÜK (ARTIK HATA YOK)
+data = {
+    "atmosfer_artis": 2.5,
+    "fotosentez_azalis": 3.2,
+    "solunum_artis": 2.1,
+    "okyanus_emilim": 1.8,
+    "toprak_salınım": 1.2
+}
 
 # CSS
 st.markdown("""
