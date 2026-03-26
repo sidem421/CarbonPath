@@ -1,0 +1,15 @@
+{
+  "atmosfer_artis": 2.5,
+  "fotosentez_azalis": 3.2,
+  "solunum_artis": 2.1,
+  "okyanus_emilim": 1.8,
+  "toprak_salınım": 1.2,
+
+  "aciklamalar": {
+    "atmosfer_artis": "Fosil yakıtlar ve doğal süreçlerle CO2 artışı",
+    "fotosentez_azalis": "Bitkilerin CO2 tüketmesi",
+    "solunum_artis": "Canlıların solunumla CO2 salması",
+    "okyanus_emilim": "Okyanusların CO2 absorbe etmesi",
+    "toprak_salınım": "Ayrışma ile CO2 salımı"
+  }
+}
